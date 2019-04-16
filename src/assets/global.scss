@@ -1,0 +1,107 @@
+//fonts and colors
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+$brand-font: Raleway, Helvetica, Arial, sans-serif;
+$font-stack: 'Avenir', Raleway, Helvetica, Arial, sans-serif;
+$caju-font-dark: rgb(44, 62, 80);
+$placeholder-text: rgba(44, 62, 80, 0.2);
+$caju-font-light: rgb(244, 244, 244);
+$caju-orange: rgb(230, 110, 100);
+$caju-orange-light: rgba(230, 110, 100, 0.8);
+$caju-orange-very-light: rgba(230, 110, 100, 0.2);
+
+$caju-green: rgb(59, 83, 33);
+$caju-green-light: rgba(59, 83, 33, 0.7);
+$caju-green-very-light: rgba(59, 83, 33, 0.1);
+
+// fabr.iq
+$primary-color: #1182ce; // LISI Blue
+$border-color: #d5d5d5; //
+$very-light-background: rgba(250, 250, 250, 1);
+$white-background: rgba(255, 255, 255, 1);
+
+// misc
+#caju-name {
+  font-family: $font-stack;
+  color: $caju-font-dark;
+  font-weight: bold;
+}
+
+a {
+  color: $caju-font-dark;
+  text-decoration: none;
+}
+
+// container
+.container-custom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // background-color: $white-background;
+}
+
+.container-custom-row {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: $white-background;
+}
+
+// inputs
+.input-line {
+  font-family: $font-stack;
+  border: none;
+  border-bottom: solid 1px $caju-font-dark;
+  color: $caju-font-dark;
+}
+
+.input-line:focus {
+  outline: 0;
+}
+
+.input-line::placeholder {
+  color: $placeholder-text;
+}
+
+.field {
+  width: 450px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.field label {
+  font-family: $font-stack;
+  font-size: 13px;
+}
+
+// buttons
+.caju-btn {
+  font-family: $font-stack;
+  background-color: transparent;
+  color: $caju-font-dark;
+  padding: 10px 20px;
+  border: solid 1px $primary-color;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.caju-btn:focus {
+  outline: 0;
+}
+
+.caju-btn:hover:enabled {
+  background-color: $primary-color;
+  color: $caju-font-light;
+}
+
+.caju-btn:disabled {
+  border: solid 1px $placeholder-text;
+  color: $placeholder-text;
+}
