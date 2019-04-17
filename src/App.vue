@@ -6,6 +6,8 @@
       panel=".main-container"
       duration="200"
       :toggleSelectors="['.toggle-button']"
+      @on-open="$store.commit('openSlideout')"
+      @on-close="$store.commit('closeSlideout')"
     >
       <div id="menu">
         <ul>
@@ -35,12 +37,12 @@ export default {
   name: "app",
   components: {
     Slideout
-  },
-  methods: {
-    closeSlideout() {
-      this.$refs.slideout.slideout.close();
-    }
   }
+  // methods: {
+  //   closeSlideout() {
+  //     this.$refs.slideout.slideout.close();
+  //   }
+  // }
 };
 </script>
 

@@ -4,7 +4,7 @@
     <navbar></navbar>
 
     <!-- MAIN SECTION -->
-    <section class="container-custom" id="home">
+    <section id="home" class="container-custom">
       <!-- Today's date -->
       <div id="date" class="container-custom-row">
         <div class="emoji">🗓</div>
@@ -24,8 +24,6 @@
 </template>
 
 <script>
-// import Navbar from "@/components/Navbar";
-// import api from "@/api";
 import navbar from "@/components/navbar";
 import teamBlock from "@/components/teamBlock";
 import taskBlock from "@/components/taskBlock";
@@ -55,6 +53,7 @@ export default {
 #home {
   padding: 0 3%;
   background-color: $white-background;
+  min-height: 80vh;
 }
 
 #date {

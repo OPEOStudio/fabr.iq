@@ -8,7 +8,7 @@
       :position-type="positionType"
       :size="size"
       :fixed-tooltip="fixedTooltip"
-      @cache="cache"
+      @ticket="ticket"
       @alertMe="alert"
     ></fab>
   </div>
@@ -23,25 +23,25 @@ export default {
   data: function() {
     return {
       bgColor: "#FF4500",
-      position: "bottom-right",
+      position: "fabriq",
       size: "small",
       positionType: "absolute",
       fixedToolip: false,
       fabActions: [
         {
-          name: "Communication",
+          name: "communication",
           icon: "today"
         },
         {
-          name: "Ticket",
+          name: "ticket",
           icon: "description"
         }
       ]
     };
   },
   methods: {
-    cache() {
-      console.log("Cache Cleared");
+    ticket() {
+      this.$router.push("ticket");
     },
     alert() {
       alert("Clicked on alert icon");
