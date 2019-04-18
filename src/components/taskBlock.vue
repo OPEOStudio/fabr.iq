@@ -12,7 +12,7 @@
     </div>
     <hr>
     <div id="task-list" class="container-custom" v-if="status == 'open'">
-      <task v-for="task in tasks" :task="task" :key="task"></task>
+      <task v-for="(task, index) in tasks" :task="task" :key="index"></task>
     </div>
   </section>
 </template>
@@ -57,6 +57,7 @@ export default {
   font-size: 24px;
   display: block;
   margin-right: 15px;
+  cursor: pointer;
 }
 
 #category {

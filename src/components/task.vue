@@ -1,9 +1,10 @@
 <template>
   <section id="task" class="container-custom-row">
     <!-- checbox -->
-    <b-checkbox id="checkbox" size="is-medium" type="is-client"></b-checkbox>
+    <b-checkbox v-model="done" id="checkbox" size="is-medium" type="is-client"></b-checkbox>
     <!-- task description -->
-    <div id="description">{{task.description}}</div>
+    <div v-if="!done" class="description not-done">{{task.description}}</div>
+    <div v-else class="description done">{{task.description}}</div>
     <!-- due date / TO DO -->
     <date id="date" :date="task.date" :format="'weekday dd shortMonth'"></date>
   </section>
@@ -13,6 +14,11 @@
 import date from "@/components/utils/date";
 export default {
   props: ["task"],
+  data: function() {
+    return {
+      done: false
+    };
+  },
   components: {
     date
   }
@@ -29,9 +35,12 @@ export default {
   justify-content: flex-start;
 }
 
-#description {
+.description {
   margin-right: 30px;
-  // text-decoration: line-through;
+}
+
+.done {
+  text-decoration: line-through;
 }
 
 #date {

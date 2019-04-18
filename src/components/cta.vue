@@ -20,13 +20,14 @@ export default {
   components: {
     fab
   },
+  props: ["type"],
   data: function() {
     return {
       bgColor: "#FF4500",
-      position: "fabriq",
+      position: this.type,
       size: "small",
       positionType: "absolute",
-      fixedToolip: false,
+      fixedTooltip: true,
       fabActions: [
         {
           name: "communication",

@@ -51,57 +51,48 @@ a {
 }
 
 // inputs
-.input-line {
+.text-input {
   font-family: $font-stack;
   border: none;
   border-bottom: solid 1px $caju-font-dark;
   color: $caju-font-dark;
 }
 
-.input-line:focus {
+.text-input:focus {
   outline: 0;
 }
 
-.input-line::placeholder {
+.text-input::placeholder {
   color: $placeholder-text;
 }
 
-.field {
-  width: 450px;
-  margin: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.field label {
-  font-family: $font-stack;
-  font-size: 13px;
-}
-
 // buttons
-.caju-btn {
+.fabriq-btn {
   font-family: $font-stack;
-  background-color: transparent;
-  color: $caju-font-dark;
+  // background-color: transparent;
+  // color: $caju-font-dark;
+  background-color: $primary-color;
+  color: $caju-font-light;
   padding: 10px 20px;
   border: solid 1px $primary-color;
   border-radius: 3px;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
 }
 
-.caju-btn:focus {
+.fabriq-btn:focus {
   outline: 0;
 }
 
-.caju-btn:hover:enabled {
-  background-color: $primary-color;
-  color: $caju-font-light;
+.fabriq-btn:hover:enabled {
+  // background-color: $primary-color;
+  // color: $caju-font-light;
+  background-color: transparent;
+  color: $caju-font-dark;
 }
 
-.caju-btn:disabled {
+.fabriq-btn:disabled {
   border: solid 1px $placeholder-text;
   color: $placeholder-text;
 }

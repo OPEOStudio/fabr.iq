@@ -1,6 +1,6 @@
 <template>
   <section id="board" class="container-custom">
-    <ticketBlock v-for="block in blocks" :block="block" :key="block"></ticketBlock>
+    <ticketBlock v-for="(category, i) in categories" :category="category" :key="i"></ticketBlock>
   </section>
 </template>
 
@@ -12,7 +12,28 @@ export default {
   },
   data: function() {
     return {
-      blocks: ["HSE", "Qualité", "Production", "Logistique", "People"]
+      categories: [
+        {
+          name: "HSE",
+          value: "hse",
+          icon: "security"
+        },
+        {
+          name: "Qualité",
+          value: "quality",
+          icon: "check_circle"
+        },
+        {
+          name: "Logistique",
+          value: "logistics",
+          icon: "timer"
+        },
+        {
+          name: "Production",
+          value: "production",
+          icon: "playlist_add_check"
+        }
+      ]
     };
   }
 };

@@ -65,6 +65,7 @@ export default {
   font-size: 24px;
   display: block;
   margin-right: 15px;
+  cursor: pointer;
 }
 
 #category {
