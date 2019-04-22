@@ -131,7 +131,7 @@
         <!-- SUBMIT BUTTON -->
         <div id="button-block" class="container-custom-row">
           <button v-show="!loading" class="fabriq-btn" @click="submitTicket">Envoyer ticket</button>
-          <!-- <spring-spinner v-show="loading" :animation-duration="3000" :size="50" color="#1182ce"/> -->
+          <circle-8 v-show="loading"></circle-8>
         </div>
       </section>
       <br>
@@ -155,18 +155,14 @@
 import navbar from "@/components/navbar";
 import date from "@/components/utils/date";
 import vSelect from "vue-select";
-import windowSize from "@/components/utils/windowSize";
-// import CubeSpin from "vue-loading-spinner/components/Cube";
-// import { SpringSpinner } from "epic-spinners";
+import { Circle8 } from "vue-loading-spinner";
 
 export default {
   components: {
     navbar,
     date,
     vSelect,
-    windowSize
-    // CubeSpin
-    // SpringSpinner
+    Circle8
   },
   data: function() {
     return {

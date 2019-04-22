@@ -30,12 +30,19 @@
     <hr>
 
     <!-- ALL BOARDS -->
-    <board v-if="tab == 'board'"></board>
-    <div class="container-custom" v-if="tab == 'news'">NEWS</div>
-    <div class="container-custom" v-if="tab == 'performance'">PERFORMANCE</div>
+    <transition name="slide-fade">
+      <board v-if="tab == 'board'"></board>
+    </transition>
+    <transition name="slide-fade">
+      <div class="container-custom" v-if="tab == 'news'">NEWS</div>
+    </transition>
+    <transition name="slide-fade">
+      <div class="container-custom" v-if="tab == 'performance'">PERFORMANCE</div>
+    </transition>
 
     <!-- CTA BUTTON -->
-    <!-- <cta :type="(window.width < 600) ? 'bottom-right':'desktop'"></cta> -->
+    <cta id="desktop-cta" :type="'desktop'"></cta>
+    <cta id="mobile-cta" :type="'bottom-right'"></cta>
   </section>
 </template>
 <script>
@@ -77,7 +84,8 @@ hr {
   width: 100%;
   align-items: flex-end;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
+  height: 60px;
 }
 
 .emoji {
@@ -101,6 +109,30 @@ hr {
 }
 
 //--------------------------------------------------------
+// -------------------- Transitions  ---------------------
+//--------------------------------------------------------
+
+.slide-fade-enter {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+  transition-delay: 0.2s;
+}
+
+.slide-fade-leave {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.4s ease;
+  transition-delay: 0.1s;
+}
+
+//--------------------------------------------------------
 // -------------------- Media queries --------------------
 //--------------------------------------------------------
 
@@ -113,9 +145,23 @@ hr {
   .emoji {
     margin-right: 0;
   }
+
+  #desktop-cta {
+    display: none;
+  }
 }
 
 // Medium Screen - 600 to 1000 px
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
+  #desktop-cta {
+    display: none;
+  }
+}
+
+// Large Screen - above1000 px
+@media only screen and (min-width: 1000px) {
+  #mobile-cta {
+    display: none;
+  }
 }
 </style>

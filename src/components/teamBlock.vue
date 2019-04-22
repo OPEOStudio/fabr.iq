@@ -11,18 +11,19 @@
       <div id="team-count">{{teams.length}} équipes</div>
     </div>
     <hr>
-    <div id="team-list" class="container-custom-row" v-if="status == 'open'">
-      <router-link
-        class="team container-custom"
-        v-for="team in teams"
-        :key="team.name"
-        to="teampage"
-      >
-        <img class="team-logo" :src="team.logo" :alt="team.name">
-        <div class="team-name">{{team.name}}</div>
-      </router-link>
-    </div>
-    <!-- <img src="../../assets/psm2.png"> -->
+    <transition name="slide-fade">
+      <div id="team-list" class="container-custom-row" v-if="status == 'open'">
+        <router-link
+          class="team container-custom"
+          v-for="team in teams"
+          :key="team.name"
+          to="teampage"
+        >
+          <img class="team-logo" :src="team.logo" :alt="team.name">
+          <div class="team-name">{{team.name}}</div>
+        </router-link>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -52,7 +53,8 @@ export default {
 @import "../assets/global";
 
 #team-block {
-  margin-top: 40px;
+  margin: 40px 0 0;
+  padding: 0 3%;
 }
 
 #title-row {

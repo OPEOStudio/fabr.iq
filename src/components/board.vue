@@ -1,6 +1,8 @@
 <template>
   <section id="board" class="container-custom">
+    <!-- <transition name="slide-fade"> -->
     <ticketBlock v-for="(category, i) in categories" :category="category" :key="i"></ticketBlock>
+    <!-- </transition> -->
   </section>
 </template>
 

@@ -20,11 +20,11 @@ $very-light-background: rgba(240, 240, 240, 1);
 $white-background: rgba(255, 255, 255, 1);
 
 // misc
-#caju-name {
-  font-family: $font-stack;
-  color: $caju-font-dark;
-  font-weight: bold;
-}
+// #caju-name {
+//   font-family: $font-stack;
+//   color: $caju-font-dark;
+//   font-weight: bold;
+// }
 
 a {
   color: $caju-font-dark;
@@ -95,4 +95,28 @@ a {
 .fabriq-btn:disabled {
   border: solid 1px $placeholder-text;
   color: $placeholder-text;
+}
+
+//--------------------------------------------------------
+// -------------------- Transitions  ---------------------
+//--------------------------------------------------------
+
+.slide-fade-enter {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+  transition-delay: 0.2s;
+}
+
+.slide-fade-leave {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.4s ease;
+  transition-delay: 0.1s;
 }

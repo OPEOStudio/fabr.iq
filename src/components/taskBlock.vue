@@ -11,9 +11,11 @@
       <div id="task-count">{{tasks.length}} tâches</div>
     </div>
     <hr>
-    <div id="task-list" class="container-custom" v-if="status == 'open'">
-      <task v-for="(task, index) in tasks" :task="task" :key="index"></task>
-    </div>
+    <transition name="slide-fade">
+      <div id="task-list" class="container-custom" v-if="status == 'open'">
+        <task v-for="(task, index) in tasks" :task="task" :key="index"></task>
+      </div>
+    </transition>
   </section>
 </template>
 
@@ -44,7 +46,8 @@ export default {
 @import "../assets/global";
 
 #task-block {
-  margin-top: 40px;
+  margin: 40px 0 0;
+  padding: 0 3%;
 }
 
 #title-row {

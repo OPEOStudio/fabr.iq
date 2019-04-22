@@ -46,7 +46,8 @@ export default {
   align-items: center;
   justify-content: flex-start;
   padding: 3px 10px;
-  width: 100%;
+  // width: 100%;
+  width: 1580px;
   border: solid 1px transparent;
   background-color: $very-light-background;
   border-radius: 4px;
@@ -58,7 +59,7 @@ export default {
 
 #left-panel {
   height: 100%;
-  width: 50%;
+  width: 40%;
   background: transparent;
 }
 

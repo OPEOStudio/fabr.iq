@@ -10,18 +10,28 @@
       @on-close="$store.commit('closeSlideout')"
     >
       <div id="menu">
-        <ul>
+        <ul id="menu-list">
           <li class="menu-link">
             <router-link to="/">Accueil</router-link>
           </li>
           <li class="menu-link">
-            <router-link to="/workspace">Mes équipes</router-link>
+            <router-link to="/teampage">Mes équipes</router-link>
           </li>
           <li class="menu-link">
-            <router-link to="/workspace">Mes tâches</router-link>
+            <router-link to="/teampage">Mes tâches</router-link>
+          </li>
+          <li @click="closeSlideout" class="menu-link">
+            <router-link to="/" v-show="$store.state.userLoaded">Mon compte</router-link>
+            <router-link to="login" v-show="!$store.state.userLoaded">Me connecter</router-link>
+          </li>
+          <li @click="closeSlideout" v-show="$store.state.userLoaded">
+            <button @click="logOut" class="fabriq-btn logout-btn">Déconnexion</button>
           </li>
         </ul>
-        <img class="toggle-button" id="logo" src="./assets/lisi.png">
+        <div class="container-custom">
+          <img class="toggle-button" id="logo" src="./assets/factory.png">
+          <span id="fabriq-name">fabr.iq</span>
+        </div>
       </div>
       <section class="main-container">
         <router-view/>
@@ -32,17 +42,22 @@
 
 <script>
 import Slideout from "vue-slideout";
+import api from "@/api";
 
 export default {
   name: "app",
   components: {
     Slideout
+  },
+  methods: {
+    closeSlideout() {
+      this.$refs.slideout.slideout.close();
+    },
+    logOut() {
+      api.logOut(this);
+      this.$router.push("login");
+    }
   }
-  // methods: {
-  //   closeSlideout() {
-  //     this.$refs.slideout.slideout.close();
-  //   }
-  // }
 };
 </script>
 
@@ -123,9 +138,13 @@ $link-focus-border: $primary;
 @import "~buefy/src/scss/buefy";
 
 // Slideout menu
+
+#menu-list {
+  margin-bottom: 30px;
+}
 .menu-link {
   font-size: 20px;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .menu-link a {
@@ -137,13 +156,20 @@ $link-focus-border: $primary;
 }
 
 .logout-btn {
-  font-size: 14px;
+  font-size: 16px;
   padding: 7px 10px;
 }
 
 #logo {
   width: 20%;
-  margin: 20px 0;
+  margin: 20px 0 5px;
+}
+
+#fabriq-name {
+  font-family: $brand-font;
+  font-size: 30px;
+  font-weight: 600;
+  // margin-top: 7px;
 }
 
 .slideout-menu {

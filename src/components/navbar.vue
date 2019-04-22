@@ -8,20 +8,17 @@
 
     <!-- Logo and name -->
     <router-link id="fabriq-brand" to="/">
-      <img id="fabriq-logo" src="../assets/factory.png">
-      <span id="fabriq-name">fabr.iq</span>
+      <img id="fabriq-logo" src="../assets/lisi.png">
+      <!-- <span id="fabriq-name">fabr.iq</span> -->
     </router-link>
 
     <!-- Top right menu -->
 
     <div id="top-right-controls">
-      <!-- <router-link id="profile-icon" to="/profile" class="container-custom-row">
-        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-        <span id="name">{{$store.state.user.firstName}}</span>
-      </router-link>-->
       <router-link id="profile-icon" to="/login" class="container-custom-row">
         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-        <span id="login-text" v-if="!$store.state.user">Connexion</span>
+        <span id="login-text" v-if="!$store.state.userLoaded">Connexion</span>
+        <span id="login-text" v-else>{{$store.state.user.first_name}}</span>
       </router-link>
     </div>
   </nav>
@@ -74,8 +71,8 @@ section {
 }
 
 #fabriq-logo {
-  height: 30px;
-  margin-right: 15px;
+  height: 35px;
+  // margin-left: 15px;
   // margin-bottom: 2px;
 }
 
