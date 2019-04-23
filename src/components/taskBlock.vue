@@ -73,6 +73,7 @@ export default {
   font-size: 15px;
   justify-self: flex-end;
   margin-top: 7px;
+  margin-left: auto;
 }
 
 hr {

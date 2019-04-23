@@ -156,6 +156,11 @@ hr {
   #desktop-cta {
     display: none;
   }
+
+  .tab {
+    font-size: 23px;
+    width: 200px;
+  }
 }
 
 // Large Screen - above1000 px

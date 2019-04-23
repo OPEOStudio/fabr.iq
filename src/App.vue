@@ -55,7 +55,7 @@ export default {
     },
     logOut() {
       api.logOut(this);
-      this.$router.push("login");
+      // this.$router.push("login");
     }
   }
 };

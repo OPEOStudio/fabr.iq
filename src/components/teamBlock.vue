@@ -8,18 +8,18 @@
         <i class="fa fa-chevron-up" aria-hidden="true"></i>
       </div>
       <div id="category">Mes équipes</div>
-      <div id="team-count">{{teams.length}} équipes</div>
+      <div id="team-count">{{$store.state.teams.length}} équipes</div>
     </div>
     <hr>
     <transition name="slide-fade">
       <div id="team-list" class="container-custom-row" v-if="status == 'open'">
         <router-link
           class="team container-custom"
-          v-for="team in teams"
+          v-for="team in $store.state.teams"
           :key="team.name"
           to="teampage"
         >
-          <img class="team-logo" :src="team.logo" :alt="team.name">
+          <img class="team-logo" :src="url + team.avatar" :alt="team.name">
           <div class="team-name">{{team.name}}</div>
         </router-link>
       </div>
@@ -31,6 +31,7 @@
 export default {
   data: function() {
     return {
+      url: "http://ec2-35-180-140-63.eu-west-3.compute.amazonaws.com",
       teams: [
         {
           name: "SOL/SOL3",
@@ -80,6 +81,7 @@ export default {
   font-size: 15px;
   justify-self: flex-end;
   margin-top: 7px;
+  margin-left: auto;
 }
 
 hr {

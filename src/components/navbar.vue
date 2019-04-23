@@ -121,6 +121,7 @@ section {
 #profile-icon i {
   line-height: 29px;
   font-size: 30px;
+  margin-right: 3px;
 }
 
 #profile-icon {

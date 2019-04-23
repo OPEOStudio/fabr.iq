@@ -16,8 +16,9 @@ const router = new Router({
       name: 'login',
       component: Login,
       meta: {
-        title: 'fabr.iq | Login',
-        requiresAuth: false
+        title: 'Connexion | fabr.iq',
+        requiresAuth: false,
+        requiresAnon: true
       }
     },
     {
@@ -25,8 +26,9 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: 'fabr.iq | Accueil',
-        requiresAuth: true
+        title: 'Accueil | fabr.iq',
+        requiresAuth: true,
+        requiresAnon: false
       }
     },
     {
@@ -34,8 +36,9 @@ const router = new Router({
       name: 'teampage',
       component: Teampage,
       meta: {
-        title: 'fabr.iq | SOL3',
-        requiresAuth: true
+        title: 'Équipe | fabr.iq',
+        requiresAuth: true,
+        requiresAnon: false
       }
     },
     {
@@ -43,8 +46,9 @@ const router = new Router({
       name: 'ticket',
       component: Ticket,
       meta: {
-        title: 'fabr.iq | Nouveau ticket',
-        requiresAuth: true
+        title: 'Nouveau ticket | fabr.iq',
+        requiresAuth: true,
+        requiresAnon: false
       }
     }
   ]
@@ -60,18 +64,27 @@ function isLoggedIn() {
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title; // set page title
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth); // fetch eventual route guard to "to" page
+  const requiresAnon = to.matched.some(record => record.meta.requiresAnon); // fetch eventual route guard to "to" page
 
   // route guard to check for protected pages
-  if (requiresAuth) {
+  if (requiresAuth && !requiresAnon) {
     if (!isLoggedIn()) {
       next({
         path: '/login',
         query: {
-          redirect: to.fullPath
-        } // if page requires auth and user is not logged in, push to log-in page and then redirect to page
+          redirect: to.fullPath // if page requires auth and user is not logged in, push to log-in page and then redirect to page
+        }
       });
     } else {
       next(); // otherwise allow access
+    }
+  } else if (!requiresAuth && requiresAnon) {
+    if (isLoggedIn()) {
+      next({
+        path: '/'
+      });
+    } else {
+      next();
     }
   } else {
     next(); // otherwise allow access

@@ -134,6 +134,7 @@
           <circle-8 v-show="loading"></circle-8>
         </div>
       </section>
+      <div>{{theseTeams}}</div>
       <br>
       <br>
       <br>
@@ -167,7 +168,7 @@ export default {
   data: function() {
     return {
       loading: false,
-      teams: ["SOL/SOL2", "SOL2"],
+      // teams: ["SOL/SOL2", "SOL2"],
       indicators: ["TRS", "TF0", "TDS", "RNC", "Accidents"],
       tags: ["RXC12-AAC", "RXC32-BTK", "Tank1", "Titane", "Aluminium"],
       categories: [
@@ -197,6 +198,13 @@ export default {
         dropFiles: []
       }
     };
+  },
+  computed: {
+    teams() {
+      return this.$store.state.teams.map(t => {
+        return t.name;
+      });
+    }
   },
   methods: {
     deleteDropFile(index) {

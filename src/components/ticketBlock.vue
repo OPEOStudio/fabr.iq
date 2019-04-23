@@ -78,28 +78,4 @@ hr {
   width: 100%;
   margin: 10px 0;
 }
-
-//--------------------------------------------------------
-// -------------------- Transitions  ---------------------
-//--------------------------------------------------------
-
-.slide-fade-enter {
-  transform: translateY(-50px);
-  opacity: 0;
-}
-
-.slide-fade-enter-active {
-  transition: all 0.5s ease;
-  transition-delay: 0.2s;
-}
-
-.slide-fade-leave {
-  transform: translateY(100px);
-  opacity: 0;
-}
-
-.slide-fade-enter-active {
-  transition: all 0.4s ease;
-  transition-delay: 0.1s;
-}
 </style>

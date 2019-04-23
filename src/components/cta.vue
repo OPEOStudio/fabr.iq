@@ -26,7 +26,7 @@ export default {
       bgColor: "#FF4500",
       position: this.type,
       size: "small",
-      positionType: "absolute",
+      positionType: "fixed",
       fixedTooltip: true,
       fabActions: [
         {
